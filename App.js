@@ -1,12 +1,32 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import LoginPage from './src/pages/LoginPage';
 
-const AppStackNavigator = createStackNavigator({
-	Home: LoginPage
-})
+const AppStackNavigator = createStackNavigator(
+	{
+		Home: {
+			screen: LoginPage,
+			navigationOptions: {
+				title:"Bem vindo!"
+			}
+		}
+	},
+	{
+		defaultNavigationOptions:
+		{
+			title:"Series",
+			headerTintColor: "black",
+			headerStyle: {
+				backgroundColor: "#f8de00"
+			},
+			headerTitleStyle: {
+				fontSize: 30,
+				color: "black"
+			}
+		}
+	}
+)
 
 const AppContainer = createAppContainer(AppStackNavigator);
 
